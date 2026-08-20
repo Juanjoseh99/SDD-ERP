@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ERP de escritorio en Python para emprendedores y micronegocios que hoy gestionan su operación
 con Excel. MVP académico de alcance deliberadamente reducido. El contexto de producto está en
-[contexto-producto.md](contexto-producto.md).
+[docs/contexto-producto.md](docs/contexto-producto.md).
 
 Equipo de 2-3 personas trabajando en paralelo con agentes de código separados.
 
@@ -50,7 +50,9 @@ Report al inicio de `constitution.md`):
 - `tasks-template.md` declara los tests como opcionales — el principio VI los hace obligatorios
   para toda regla de negocio, y falta la tarea de la prueba de arquitectura.
 - `spec-template.md` no tiene campo para declarar a cuál de las tres actividades sirve la
-  feature ni qué conceptos nuevos expone al usuario.
+  feature ni qué conceptos nuevos expone al usuario. La feature 001 lo resuelve añadiendo una
+  sección **"Encuadre según la constitución"** justo antes de las historias de usuario, con una
+  tabla de actividades servidas y otra de conceptos nuevos expuestos. Replica ese patrón.
 - `plan-template.md` tiene el Constitution Check genérico, sin los seis gates concretos.
 
 ## Decisiones abiertas
@@ -62,20 +64,28 @@ Report al inicio de `constitution.md`):
 
 ## Comandos
 
-No hay build, test ni lint configurados: no existe `pyproject.toml` ni `requirements.txt`, y
-`main.py` está vacío. Al añadir las primeras pruebas —que el principio VI exige para las reglas
-de negocio— documenta aquí cómo ejecutar la suite y cómo ejecutar una prueba suelta.
+No hay build, test ni lint configurados: no existe `pyproject.toml` ni `requirements.txt`. Al
+añadir las primeras pruebas —que el principio VI exige para las reglas de negocio— documenta
+aquí cómo ejecutar la suite completa y cómo ejecutar una prueba suelta.
 
-## Punto de partida
+## Estado del repositorio
 
-Estado en la ratificación de la constitución (2026-08-19). **Borra esta sección en cuanto deje
-de ser cierta**; el historial de lo hecho pertenece a git y a los artefactos de `specs/`, no a
-este fichero.
+Mantén esta sección al día y breve. Es una foto de dónde está el proyecto, no un registro de lo
+hecho: el historial pertenece a git y a los artefactos de `specs/`.
 
-- Sin código de aplicación: `main.py` vacío, sin `specs/`, ninguna feature iniciada.
-- No existe `backlog.md`, que el principio II señala como destino de todo alcance pospuesto.
-  Créalo cuando se posponga lo primero.
-- El proyecto no es un repositorio git.
+- **Feature activa**: [specs/001-inventario-productos/](specs/001-inventario-productos/) —
+  catálogo de productos, libro de movimientos inmutables y existencias derivadas. `spec.md`
+  escrita y clarificada; quedan **14 puntos abiertos** tabulados al final de la spec, de los que
+  C14 (desempate cuando dos movimientos comparten fecha) es el único de impacto alto. Aún no hay
+  `plan.md`.
+- **Sin código de aplicación**: `main.py` sigue vacío.
+- **No existe `backlog.md`**, que el principio II señala como destino de todo alcance pospuesto.
+  Créalo cuando se posponga lo primero — el "fuera de alcance" de la feature 001 (compras,
+  ventas, proveedores, lotes, múltiples bodegas, valorización) todavía no está registrado allí.
+- **Repositorio git** sobre la rama `main`. No existe `.specify/extensions.yml`, así que los
+  comandos de Spec Kit no crean ramas ni ejecutan hooks: se trabaja directamente sobre `main`.
+- La feature activa se localiza por [.specify/feature.json](.specify/feature.json), no por el
+  nombre de la rama. Si trabajas otra feature, ese fichero es el que hay que apuntar.
 
 ## Idioma
 

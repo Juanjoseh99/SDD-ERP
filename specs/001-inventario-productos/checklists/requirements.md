@@ -14,10 +14,11 @@
 
 ## Requirement Completeness
 
-- [ ] **No quedan marcadores [NEEDS CLARIFICATION]** — quedan 17 (C1–C17), deliberadamente, por
-      instrucción explícita del usuario: "Prefiero diez marcadores a una decisión silenciosa".
-      Se resuelven en `/speckit-clarify`.
-- [x] Los requisitos son verificables y no ambiguos — salvo los 17 puntos marcados, que están
+- [ ] **No quedan marcadores [NEEDS CLARIFICATION]** — quedan 14 tras la sesión de clarificación
+      del 2026-08-19 (resueltos C2, C6 y C10; parcialmente C9 y C12). Los marcadores son
+      deliberados, por instrucción explícita del usuario: "Prefiero diez marcadores a una decisión
+      silenciosa".
+- [x] Los requisitos son verificables y no ambiguos — salvo los 14 puntos marcados, que están
       señalados como abiertos en lugar de redactados de forma ambigua
 - [x] Los criterios de éxito son medibles
 - [x] Los criterios de éxito son agnósticos de tecnología
@@ -52,9 +53,12 @@
 
 - El único ítem incompleto es intencional. La instrucción del usuario al invocar
   `/speckit-specify` fue explícita: marcar todo lo no resuelto en lugar de inventar criterio.
-  Los 17 puntos están tabulados al final de `spec.md`, priorizados por impacto.
-- **Antes de `/speckit-plan` deben resolverse al menos los de impacto alto**: C2 (alcance del
-  registro manual), C6 (existencias negativas), C9 (carga inicial), C10 (costo unitario en
-  salidas) y C14 (orden de desempate). Los demás pueden decidirse durante la planificación si el
-  equipo lo prefiere, pero deben quedar registrados.
-- Ruta recomendada: `/speckit-clarify` (resuelve hasta 5 por pasada) antes de `/speckit-plan`.
+  Los 14 puntos que siguen abiertos están tabulados al final de `spec.md`.
+- **Sesión de clarificación 2026-08-19** (5 preguntas, cupo agotado): resueltos por completo C2,
+  C6 y C10; resueltos en parte C9 (falta la fecha de ocurrencia de la carga inicial) y C12 (falta
+  origen, parcialidad y motivo de la corrección).
+- **Sigue pendiente de impacto alto**: C14 (criterio de desempate cuando dos movimientos comparten
+  fecha). Afecta al saldo acumulado que se muestra línea a línea, así que debe quedar decidido en
+  `/speckit-plan` aunque no se ejecute otra pasada de clarificación.
+- Los once restantes (C1, C3, C4, C5, C7, C8, C11, C13, C15, C16, C17) son de impacto medio o
+  bajo y pueden decidirse durante la planificación, siempre que queden registrados allí.

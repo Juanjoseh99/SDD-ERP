@@ -4,7 +4,8 @@
 
 **Created**: 2026-08-19
 
-**Status**: Draft — 15 puntos abiertos marcados con `[NEEDS CLARIFICATION]` (ver el resumen al final)
+**Status**: Draft — 5 preguntas de clarificación resueltas; quedan 14 puntos abiertos marcados
+con `[NEEDS CLARIFICATION]` (ver el resumen al final)
 
 **Input**: Descripción del usuario:
 
@@ -332,7 +333,7 @@ que las existencias vuelven al valor esperado y que ambos movimientos siguen vis
   MUST devolver un fallo explícito que identifique el producto, las existencias disponibles en
   ese momento y la cantidad solicitada, para que el módulo que lo originó pueda explicárselo al
   emprendedor.
-- **FR-033a**: **Invariante**: ningún movimiento distinto de una corrección MUST poder dejar las
+- **FR-033a**: **Invariante**: un movimiento que no sea una corrección MUST NOT dejar las
   existencias de un producto por debajo de cero. Es una propiedad verificable del libro de
   movimientos en su conjunto, no solo una validación de entrada. La única excepción son las
   correcciones (FR-035).
@@ -408,8 +409,12 @@ que las existencias vuelven al valor esperado y que ambos movimientos siguen vis
 - **SC-007**: Con 500 productos y 10.000 movimientos registrados, la consulta de existencias de
   todos los productos y el historial de un producto se muestran en menos de 2 segundos.
 - **SC-008**: El 100% de las reglas de cálculo y validación de esta feature (suma de existencias,
-  saldo acumulado, signo por tipo de movimiento, inmutabilidad, reversión) está cubierto por al
-  menos una prueba automatizada que se ejecuta sin arrancar la interfaz.
+  saldo acumulado, signo por tipo de movimiento, inmutabilidad, reversión, rechazo por saldo
+  insuficiente y origen del costo unitario) está cubierto por al menos una prueba automatizada
+  que se ejecuta sin arrancar la interfaz.
+- **SC-009**: Ningún producto presenta existencias negativas, salvo cuando una corrección lo dejó
+  así; en ese caso el 100% de esos productos aparece destacado como pendiente de regularizar en
+  la consulta de existencias.
 
 ## Assumptions
 
